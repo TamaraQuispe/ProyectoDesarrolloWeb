@@ -1,0 +1,110 @@
+<div class="main-content">
+  <div class="content">
+    <div class="arqueo-panel">
+      <div class="arqueo-header">
+        <h2>Arqueo de Caja</h2>
+        <button class="add-btn" id="addArqueoBtn">+ Nuevo Arqueo</button>
+      </div>
+      <div class="table-responsive"></div>
+      <table class="table arqueo-table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">ID Arqueo</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Usuario</th>
+            <th scope="col">Monto Inicial</th>
+            <th scope="col">Ingresos</th>
+            <th scope="col">Egresos</th>
+            <th scope="col">Saldo Final</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="arqueoTableBody">
+          <tr>
+            <td>A001</td>
+            <td>2025-09-01</td>
+            <td>Ana Torres</td>
+            <td>$200.00</td>
+            <td>$150.00</td>
+            <td>$50.00</td>
+            <td>$300.00</td>
+            <td><span class="status pagado">Cerrado</span></td>
+            <td>
+              <button class="edit-btn btn btn-sm btn-success">Editar</button>
+              <button class="delete-btn btn btn-sm btn-warning">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>A002</td>
+            <td>2025-09-01</td>
+            <td>Luis Gómez</td>
+            <td>$100.00</td>
+            <td>$80.00</td>
+            <td>$20.00</td>
+            <td>$160.00</td>
+            <td><span class="status pendiente">Abierto</span></td>
+            <td>
+              <button class="edit-btn btn btn-sm btn-success">Editar</button>
+              <button class="delete-btn btn btn-sm btn-warning">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- Modal Nuevo Arqueo -->
+  <div class="modal" id="arqueoModal">
+    <div class="modal-content">
+      <div class="titulo">
+        <h3>Nuevo Arqueo</h3>
+      </div>
+
+      <form id="arqueoForm">
+        <label for="arqueoId">ID Arqueo</label>
+        <input type="text" id="arqueoId" required>
+
+        <label for="arqueoFecha">Fecha</label>
+        <input type="date" id="arqueoFecha" required>
+
+        <label for="arqueoUsuario">Usuario</label>
+        <input type="text" id="arqueoUsuario" required>
+
+        <label for="arqueoInicial">Monto Inicial</label>
+        <input type="number" id="arqueoInicial" step="0.01" required>
+
+        <label for="arqueoIngresos">Ingresos</label>
+        <input type="number" id="arqueoIngresos" step="0.01" required>
+
+        <label for="arqueoEgresos">Egresos</label>
+        <input type="number" id="arqueoEgresos" step="0.01" required>
+
+        <label for="arqueoSaldo">Saldo Final</label>
+        <input type="number" id="arqueoSaldo" step="0.01" required>
+
+        <label for="arqueoEstado">Estado</label>
+        <select id="arqueoEstado" required>
+          <option value="Cerrado">Cerrado</option>
+          <option value="Abierto">Abierto</option>
+        </select>
+
+        <div class="modal-actions">
+          <button type="submit" class="add-btn">Guardar</button>
+          <button type="button" class="delete-btn" id="closeArqueoModal">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span>© 2025 · DJULIA</span>
+  <div class="footer-links">
+    <a href="#">About</a>
+    <a href="#">Careers</a>
+    <a href="#">Policy</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>
+<script src="JS/arqueo.js"></script>
+</div>

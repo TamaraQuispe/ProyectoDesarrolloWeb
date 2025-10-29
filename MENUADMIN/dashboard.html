@@ -1,0 +1,87 @@
+<!-- Contenido principal -->
+<div class="main-content py-4">
+  <h1 class="text-center mb-3 fw-bold text-brown">Dashboard D'Julia</h1>
+  <h2 class="h5 text-center text-muted mb-4" id="saludo"></h2>
+
+  <!-- Paneles Resumen -->
+  <div class="row g-4 mb-4 text-center">
+    <div class="col-md-4 d-flex">
+      <div class="card text-white bg-cake-pink shadow resumen-card flex-fill">
+        <div class="card-body d-flex flex-column justify-content-center">
+          <h5 class="card-title"><i class="fas fa-receipt"></i> Pedidos del día</h5>
+          <p class="contador display-6 fw-bold">12</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 d-flex">
+      <div class="card text-white bg-cake-gold shadow resumen-card flex-fill">
+        <div class="card-body d-flex flex-column justify-content-center">
+          <h5 class="card-title"><i class="fas fa-cash-register"></i> Ventas Hoy</h5>
+          <p class="contador display-6 fw-bold">S/. 480</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 d-flex">
+      <div class="card text-white bg-cake-brown shadow resumen-card flex-fill">
+        <div class="card-body d-flex flex-column justify-content-center">
+          <h5 class="card-title"><i class="fas fa-birthday-cake"></i> Postres</h5>
+          <p class="contador display-6 fw-bold">42</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Paneles Detalle -->
+  <div class="row g-4">
+    <!-- Ingresos -->
+    <div class="col-lg-6">
+      <div class="card shadow h-100 panel">
+        <div class="card-body">
+          <h5 class="card-title"><i class="fas fa-chart-line"></i> Ingresos</h5>
+          <canvas id="graficoIngresos" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Productos -->
+    <div class="col-lg-3">
+      <div class="card shadow h-100 panel">
+        <div class="card-body">
+          <h5 class="card-title"><i class="fas fa-star"></i> Más vendidos</h5>
+          <ol class="list-group list-group-numbered">
+            <li class="list-group-item">Torta de Chocolate</li>
+            <li class="list-group-item">Cheesecake de Fresa</li>
+            <li class="list-group-item">Croissant</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pedidos Recientes -->
+    <div class="col-lg-3">
+      <div class="card shadow h-100 panel">
+        <div class="card-body">
+          <h5 class="card-title"><i class="fas fa-clock"></i> Pedidos Recientes</h5>
+          <ul class="list-group">
+            <li class="list-group-item">Isabel M. (#1202) - hace 5m</li>
+            <li class="list-group-item">Daniel R. (#1203) - hace 40m</li>
+            <li class="list-group-item">Laura B. (#1204) - hace 1h</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span>© 2025 · DJULIA</span>
+    <div class="footer-links">
+      <a href="#">About</a>
+      <a href="#">Careers</a>
+      <a href="#">Policy</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+
+</div>

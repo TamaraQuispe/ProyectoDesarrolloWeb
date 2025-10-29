@@ -1,0 +1,152 @@
+/* ------------------------ */
+/* Fondo general y fuente   */
+/* ------------------------ */
+body {
+  background-color: #fff8f2; /* Beige suave */
+  font-family: 'Segoe UI', sans-serif;
+  color: #4b2e2e;
+  margin: 0;
+  padding: 0;
+  /* display: flex;  Eliminado para un layout más estándar */
+}
+
+/* Sidebar fijo */
+.sidebar {
+  width: 80px; /* Ajusta al ancho real de tu sidebar */
+  min-height: 100vh;
+  background: #d4af7a;
+}
+
+/* Contenido principal */
+.main-content {
+  /* flex: 1; */ /* Reemplazado por margin-left */
+  padding: 20px;
+  margin-left: 80px; /* Mismo ancho que el sidebar */
+  /* align-items: center;  Eliminado para permitir que el contenido fluya naturalmente */
+  /* max-width: 1200px;    Eliminado para usar el ancho completo disponible */
+  /* margin: 0 auto;       Reemplazado por margin-left */
+}
+
+/* ------------------------ */
+/* Títulos principales      */
+/* ------------------------ */
+.text-brown {
+  color: #3c3633 !important;
+  font-family: 'Georgia', serif;
+  letter-spacing: 1px;
+}
+
+h1, h2, h5 {
+  margin: 0;
+  padding: 0;
+}
+
+/* ------------------------ */
+/* Paneles de resumen       */
+/* ------------------------ */
+.resumen-card {
+  border-radius: 16px !important;
+  text-align: center;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.resumen-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.bg-cake-pink {
+  background: linear-gradient(135deg, #CABE82, #F2D6CE) !important;
+}
+
+.bg-cake-gold {
+  background: linear-gradient(135deg, #D9899F, #F2E7DD) !important;
+}
+
+.bg-cake-brown {
+  background: linear-gradient(135deg, #7A958F, #BAE0DA) !important;
+}
+
+.resumen-card h5 {
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.resumen-card .contador {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 700;
+  animation: counterPulse 2s infinite ease-in-out;
+}
+
+/* ------------------------ */
+/* Paneles de detalle       */
+/* ------------------------ */
+.panel {
+  border-radius: 16px !important;
+  background: #fff;
+  border: none;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 15px;
+}
+
+.panel:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.panel .card-title {
+  font-weight: 600;
+  color: #5c2d06;
+  margin-bottom: 15px;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ------------------------ */
+/* Listas personalizadas    */
+/* ------------------------ */
+.list-group-item {
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  background: #fff9f5;
+  color: #4b2e2e;
+  font-size: 0.95rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.list-group-item:hover {
+  background: #ffe5d9;
+  color: #5c2d06;
+}
+
+/* ------------------------ */
+/* Correcciones de alineado */
+/* ------------------------ */
+.row > [class*='col-'] {
+  display: flex;
+  align-items: stretch;
+}
+
+.resumen-card,
+.panel {
+  width: 100%; /* Asegura que ocupe el espacio de la columna */
+  /* flex: 1; Eliminado, las columnas de la grilla ya gestionan el espacio */
+}
+
+/* ------------------------ */
+/* Animaciones              */
+/* ------------------------ */
+@keyframes counterPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}

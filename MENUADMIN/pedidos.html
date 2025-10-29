@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="CSS/pedidos.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="main-content">
+    <div class="content">
+      <div class="pedidos-panel">
+        <div class="pedidos-header">
+          <h2>Listado de Pedidos</h2>
+          <button class="add-btn" id="addPedidoBtn">+ Nuevo Pedido</button>
+        </div>
+        <div class="table-responsive">
+          <table class="table pedidos-table">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">N° Pedido</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Total</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="pedidosTableBody">
+              <tr>
+                <td>P0001</td>
+                <td>Isabel M.</td>
+                <td>2025-09-01</td>
+                <td>$50.00</td>
+                <td><span class="status pagado">Entregado</span></td>
+                <td>
+                  <button class="edit-btn btn btn-sm btn-success">Editar</button>
+                  <button class="delete-btn btn btn-sm btn-warning">Eliminar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>P0002</td>
+                <td>Daniel R.</td>
+                <td>2025-09-01</td>
+                <td>$75.00</td>
+                <td><span class="status pendiente">En proceso</span></td>
+                <td>
+                  <button class="edit-btn btn btn-sm btn-success">Editar</button>
+                  <button class="delete-btn btn btn-sm btn-warning">Eliminar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>P0003</td>
+                <td>Laura B.</td>
+                <td>2025-08-31</td>
+                <td>$30.00</td>
+                <td><span class="status pagado">Entregado</span></td>
+                <td>
+                  <button class="edit-btn btn btn-sm btn-success">Editar</button>
+                  <button class="delete-btn btn btn-sm btn-warning">Eliminar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Modal Nuevo Pedido -->
+      <div class="modal" id="pedidoModal">
+        <div class="modal-content">
+          <div class="titulo">
+            <h3>Nuevo Pedido</h3>
+          </div>
+          <form id="pedidoForm">
+            <label for="pedidoNumber">N° Pedido</label>
+            <input type="text" id="pedidoNumber" required>
+
+            <label for="pedidoCliente">Cliente</label>
+            <input type="text" id="pedidoCliente" required>
+
+            <label for="pedidoFecha">Fecha</label>
+            <input type="date" id="pedidoFecha" required>
+
+            <label for="pedidoTotal">Total</label>
+            <input type="number" id="pedidoTotal" step="0.01" required>
+
+            <label for="pedidoEstado">Estado</label>
+            <select id="pedidoEstado" required>
+              <option value="entregado">Entregado</option>
+              <option value="proceso">En proceso</option>
+              <option value="pendiente">Pendiente</option>
+            </select>
+
+            <div class="modal-actions">
+              <button type="submit" class="add-btn">Guardar</button>
+              <button type="button" class="delete-btn" id="closePedidoModal">Cancelar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <span>© 2025 · DJULIA</span>
+      <div class="footer-links">
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Policy</a>
+        <a href="#">Contact</a>
+      </div>
+    </footer>
+    <script src="JS/pedidos.js"></script>
+  </div>
+
+</body>
+
+</html>

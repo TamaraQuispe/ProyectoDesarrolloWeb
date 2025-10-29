@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Administración</title>
+
+  <!-- CSS del proyecto -->
+  <link rel="stylesheet" href="CSS/admin.css">
+  <link rel="stylesheet" href="CSS/dashboard.css">
+  <link rel="stylesheet" href="CSS/catalogo.css">
+  <link rel="stylesheet" href="CSS/facturacion.css">
+  <link rel="stylesheet" href="CSS/pedidos.css">
+  <link rel="stylesheet" href="CSS/reportes.css">
+  <link rel="stylesheet" href="CSS/roles.css">
+  <link rel="stylesheet" href="CSS/usuarios.css">
+  <link rel="stylesheet" href="CSS/arqueo.css">
+  <link rel="stylesheet" href="CSS/ModalPassword.css">
+
+  <!-- Bootstrap y librerías externas -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-actions">
+      <div class="admin-menu-container">
+        <button class="admin-btn" id="adminMenuBtn">
+          ADMIN <span class="material-icons" style="font-size:18px;vertical-align:middle;"></span>
+        </button>
+        <div class="admin-dropdown" id="adminDropdown">
+          <div class="admin-dropdown-header">Admin</div>
+          <button class="admin-dropdown-item cambiar" type="button" id="btnCambiarPassword">CAMBIAR CONTRASEÑA</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Modal de contraseña -->
+  <div class="modal" id="modalPassword">
+    <div class="modal-content">
+      <h2>CAMBIO DE CONTRASEÑA</h2>
+      <p class="modal-subtitle">Ingrese su nueva contraseña:</p>
+
+      <form id="formPassword">
+        <!-- Contraseña actual -->
+        <div class="input-group">
+          <label for="currentPassword">Contraseña actual</label>
+          <div class="password-wrapper">
+            <input type="password" id="currentPassword" placeholder="Contraseña actual" required />
+            <span class="toggle-password" data-target="currentPassword">
+              <i class="fa-solid fa-eye"></i>
+            </span>
+          </div>
+        </div>
+
+        <!-- Contraseña nueva -->
+        <div class="input-group">
+          <label for="newPassword">Contraseña nueva</label>
+          <div class="password-wrapper">
+            <input type="password" id="newPassword" placeholder="Contraseña nueva" minlength="8" required />
+            <span class="toggle-password" data-target="newPassword">
+              <i class="fa-solid fa-eye"></i>
+            </span>
+          </div>
+          <small class="help-text">Debe tener al menos 8 caracteres.</small>
+        </div>
+
+        <!-- Confirmar contraseña -->
+        <div class="input-group">
+          <label for="confirmPassword">Confirmar contraseña nueva</label>
+          <div class="password-wrapper">
+            <input type="password" id="confirmPassword" placeholder="Confirmar contraseña nueva" minlength="8"
+              required />
+            <span class="toggle-password" data-target="confirmPassword">
+              <i class="fa-solid fa-eye"></i>
+            </span>
+          </div>
+          <small class="help-text">Debe coincidir con la nueva contraseña.</small>
+        </div>
+
+        <!-- Botones -->
+        <div class="modal-buttons">
+          <button type="button" class="btn cancel-btn" id="cancelModal">
+            Cerrar
+          </button>
+          <button type="submit" class="btn save-btn">Cambiar Contraseña</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Contenedor principal -->
+  <div class="contenedor">
+
+    <!-- Sidebar -->
+    <aside id="sidebar">
+      <div class="d-flex justify-content-between p-4">
+        <div class="logo-sidebar">
+          <a href="Admin_Index.html"><img src="imagenes/logod.png" alt="Logo"></a>
+        </div>
+        <button class="toggle-btn border-0" type="button">
+          <i id="icono" class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <ul class="nav-lateral">
+        <li class="apartado">
+          <a href="dashboard.html" class="apartado-link" data-page="dashboard.html">
+            <i class="fa-solid fa-house"></i>
+            <span>Inicio</span>
+          </a>
+        </li>
+
+        <li class="apartado">
+          <a href="#" class="apartado-link has-dropdown" data-bs-toggle="collapse" data-bs-target="#almacen"
+            aria-expanded="false" aria-controls="almacen">
+            <i class="fa-solid fa-warehouse"></i>
+            <span>Almacén</span>
+          </a>
+          <ul id="almacen" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+            <li class="apartado">
+              <a href="catalogo.html" class="apartado-link" data-page="catalogo.html">Catálogo</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="apartado">
+          <a href="#" class="apartado-link has-dropdown" data-bs-toggle="collapse" data-bs-target="#ventas"
+            aria-expanded="false" aria-controls="ventas">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>Ventas</span>
+          </a>
+          <ul id="ventas" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+            <li class="apartado">
+              <a href="facturacion.html" class="apartado-link" data-page="facturacion.html">Facturación</a>
+            </li>
+            <li class="apartado">
+              <a href="pedidos.html" class="apartado-link" data-page="pedidos.html">Pedidos</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="apartado">
+          <a href="#" class="apartado-link has-dropdown" data-bs-toggle="collapse" data-bs-target="#usuario"
+            aria-expanded="false" aria-controls="usuario">
+            <i class="fa-solid fa-users"></i>
+            <span>Usuario</span>
+          </a>
+          <ul id="usuario" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+            <li class="apartado">
+              <a href="usuarios.html" class="apartado-link" data-page="usuarios.html">Gestión de usuarios</a>
+            </li>
+            <li class="apartado">
+              <a href="roles.html" class="apartado-link" data-page="roles.html">Roles y permisos</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="apartado">
+          <a href="#" class="apartado-link has-dropdown" data-bs-toggle="collapse" data-bs-target="#caja"
+            aria-expanded="false" aria-controls="caja">
+            <i class="fa-solid fa-money-bill-trend-up"></i>
+            <span>Caja</span>
+          </a>
+          <ul id="caja" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+            <li class="apartado">
+              <a href="arqueo.html" class="apartado-link" data-page="arqueo.html">Arqueo de caja</a>
+            </li>
+            <li class="apartado">
+              <a href="reportes.html" class="apartado-link" data-page="reportes.html">Reportes de caja</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <a href="#" id="logoutBtn" class="apartado-link">
+          <i class="fa-solid fa-door-open"></i>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Contenido principal -->
+    <div class="main" id="main-content"></div>
+  </div>
+
+  <!-- Bootstrap y JS del proyecto -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- JS del proyecto -->
+  <script type = "module" src="js/api.js"></script>
+  <script type = "module" src="js/authRequest.js"></script>
+  <script type = "module" src="JS/Admin.js"></script>
+  <script type = "module" src="JS/dashboard.js"></script>
+  <script type = "module" src="JS/catalogo.js"></script>
+  <script type = "module" src="JS/facturacion.js"></script>
+  <script type = "module" src="JS/pedidos.js"></script>
+  <script type = "module" src="JS/reportes.js"></script>
+  <script type = "module" src="JS/roles.js"></script>
+  <script type = "module" src="JS/usuarios.js"></script>
+  <script type = "module" src="JS/arqueo.js"></script>
+  <script type = "module" src="JS/ModalPassword.js"></script>
+
+
+  <div id="logoutToast"
+    class="toast align-items-center text-white border-0 position-fixed top-0 end-0 m-4 shadow-lg fade" role="alert"
+    aria-live="assertive" aria-atomic="true" style="background-color: #00bcd4; min-width: 280px; z-index: 9999;">
+    <div class="d-flex">
+      <div class="toast-body fw-semibold" id="logoutToastMessage">
+        Sesión cerrada correctamente
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+        aria-label="Close"></button>
+    </div>
+  </div>
+
+
+</body>
+
+</html>

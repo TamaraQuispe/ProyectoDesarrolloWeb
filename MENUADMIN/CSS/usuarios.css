@@ -1,0 +1,137 @@
+/* =========================================================
+   PANEL DE USUARIOS
+   ========================================================= */
+   .usuarios-panel {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(60, 60, 60, 0.08);
+    padding: 24px;
+    margin: 30px auto;
+    max-width: 1500px;
+    width: 95%;
+  }
+  
+  /* ENCABEZADO */
+  .usuarios-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+  
+  .usuarios-header h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  /* TABLA */
+  .usuarios-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    text-align: center;
+  }
+  
+  .usuarios-table th,
+  .usuarios-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .usuarios-table th {
+    background: #f9f9f9;
+    font-weight: 600;
+    color: #444;
+  }
+  
+  .usuarios-table tr:hover {
+    background: #f8f4f7;
+  }
+  
+  /* ESTADOS */
+  .status {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  
+  .status.activo {
+    background: #d4edda;
+    color: #155724;
+  }
+  
+  .status.inactivo {
+    background: #fff3cd;
+    color: #856404;
+  }
+  
+  /* =========================================================
+     BOTÓN "NUEVO USUARIO"
+     ========================================================= */
+  .add-btn {
+    background-color: #87004f;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .add-btn:hover {
+    background-color: #a6005f;
+    transform: scale(1.03);
+  }
+  
+  /* =========================================================
+     MODALES BOOTSTRAP (CREAR / EDITAR / ELIMINAR)
+     ========================================================= */
+  .modal-header.bg-danger {
+    background-color: #c82333 !important;
+  }
+  
+  .btn-close-white {
+    filter: invert(1);
+  }
+  
+  /* Modal Crear/Editar */
+  .modal-header.custom-bg {
+    background-color: #87004f;
+    color: #fff;
+  }
+  
+  .modal-footer .btn-guardar {
+    background-color: #87004f;
+    color: #fff;
+    border: none;
+  }
+  
+  .modal-footer .btn-guardar:hover {
+    background-color: #a6005f;
+  }
+  
+  /* Centrado y sombras */
+  .modal-content {
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  }
+  
+  /* =========================================================
+     RESPONSIVE
+     ========================================================= */
+  @media (max-width: 600px) {
+    .usuarios-table {
+      font-size: 13px;
+    }
+  
+    .add-btn {
+      padding: 8px 14px;
+      font-size: 14px;
+    }
+  
+    .modal-content {
+      width: 95%;
+    }
+  }  

@@ -1,0 +1,105 @@
+<div class="main-content">
+  <div class="content">
+    <div class="reportes-panel">
+      <div class="reportes-header">
+        <h2>Reportes de Caja</h2>
+        <button class="add-btn" id="addReporteBtn">+ Nuevo Reporte</button>
+      </div>
+      <div class="table-responsive">
+        <table class=" table reportes-table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">ID Reporte</th>
+              <th scope="col">Fecha</th>
+              <th scope="col">Usuario</th>
+              <th scope="col">Ingresos</th>
+              <th scope="col">Egresos</th>
+              <th scope="col">Saldo Final</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="reportesTableBody">
+            <tr>
+              <td>RPT001</td>
+              <td>2025-09-01</td>
+              <td>Ana Torres</td>
+              <td>$500.00</td>
+              <td>$200.00</td>
+              <td>$300.00</td>
+              <td><span class="status pagado">Cerrado</span></td>
+              <td>
+                <button class="edit-btn btn btn-sm btn-success">Editar</button>
+                <button class="delete-btn btn btn-sm btn-warning">Eliminar</button>
+              </td>
+            </tr>
+            <tr>
+              <td>RPT002</td>
+              <td>2025-09-01</td>
+              <td>Luis Gómez</td>
+              <td>$300.00</td>
+              <td>$100.00</td>
+              <td>$200.00</td>
+              <td><span class="status pendiente">En revisión</span></td>
+              <td>
+                <button class="edit-btn btn btn-sm btn-success">Editar</button>
+                <button class="delete-btn btn btn-sm btn-warning">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- Modal Nuevo Reporte -->
+    <div class="modal" id="reporteModal">
+      <div class="modal-content">
+        <div class="titulo">
+          <h3>Nuevo Reporte</h3>
+        </div>
+        <form id="reporteForm">
+          <label for="reporteId">ID Reporte</label>
+          <input type="text" id="reporteId" required>
+
+          <label for="reporteFecha">Fecha</label>
+          <input type="date" id="reporteFecha" required>
+
+          <label for="reporteUsuario">Usuario</label>
+          <input type="text" id="reporteUsuario" required>
+
+          <label for="reporteIngresos">Ingresos</label>
+          <input type="number" id="reporteIngresos" step="0.01" required>
+
+          <label for="reporteEgresos">Egresos</label>
+          <input type="number" id="reporteEgresos" step="0.01" required>
+
+          <label for="reporteSaldo">Saldo Final</label>
+          <input type="number" id="reporteSaldo" step="0.01" required>
+
+          <label for="reporteEstado">Estado</label>
+          <select id="reporteEstado" required>
+            <option value="Cerrado">Cerrado</option>
+            <option value="revisión">En revisión</option>
+          </select>
+
+          <div class="modal-actions">
+            <button type="submit" class="add-btn">Guardar</button>
+            <button type="button" class="delete-btn" id="closeReporteModal">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+  <footer>
+    <span>© 2025 · DJULIA</span>
+    <div class="footer-links">
+      <a href="#">About</a>
+      <a href="#">Careers</a>
+      <a href="#">Policy</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+  <script src="JS/reportes.js"></script>
+</div>

@@ -1,0 +1,96 @@
+<div class="main-content">
+  <div class="content">
+    <div class="usuarios-panel">
+      <div class="usuarios-header">
+        <h2>Gestión de Usuarios</h2>
+        <button class="add-btn" id="addUsuarioBtn">+ Nuevo Usuario</button>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table usuarios-table">
+          <thead class="thead-dark">
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Rol</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="usuariosTableBody">
+            <!-- Se llenará dinámicamente -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- MODAL CREAR / EDITAR USUARIO -->
+    <div class="modal fade" id="usuarioModal" tabindex="-1" aria-labelledby="usuarioModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg rounded-3">
+          <div class="modal-header" style="background-color: #87004f; color: #fff;">
+            <h5 class="modal-title" id="usuarioModalLabel">Nuevo Usuario</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+
+          <form id="usuarioForm">
+            <div class="modal-body">
+              <input type="hidden" id="usuarioId" />
+
+              <label for="usuarioNombre" class="form-label">Nombre</label>
+              <input type="text" id="usuarioNombre" class="form-control" placeholder="Ingrese nombre" required />
+
+              <label for="usuarioEmail" class="form-label mt-2">Email</label>
+              <input type="email" id="usuarioEmail" class="form-control" placeholder="Ingrese email" required />
+
+              <label for="usuarioPassword" class="form-label mt-2">Contraseña</label>
+              <input type="password" id="usuarioPassword" class="form-control" placeholder="Ingrese contraseña" />
+
+              <label for="usuarioRol" class="form-label mt-2">Rol</label>
+              <select id="usuarioRol" class="form-select"></select>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn" style="background-color: #87004f; color: white;">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL ELIMINAR USUARIO -->
+    <div class="modal fade" id="deleteUsuarioModal" tabindex="-1" aria-labelledby="deleteUsuarioLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg rounded-3">
+          <div class="modal-header bg-danger text-white">
+            <h5 class="modal-title" id="deleteUsuarioLabel">Confirmar Eliminación</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body text-center">
+            ¿Estás seguro de eliminar al usuario <strong id="usuarioToDeleteName"></strong>?
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-danger" id="confirmDeleteUsuario">Eliminar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <span>© 2025 · DJULIA</span>
+    <div class="footer-links">
+      <a href="#">About</a>
+      <a href="#">Careers</a>
+      <a href="#">Policy</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+
+  <script type="module" src="JS/authRequest.js"></script>
+  <script type="module" src="JS/usuarios.js"></script>
+</div>

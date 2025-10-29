@@ -1,0 +1,129 @@
+/* Panel de tabla Pedidos */
+.pedidos-panel {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(60, 60, 60, 0.08);
+  padding: 24px;
+  margin: 30px auto;
+  max-width: 1500px;
+  width: 95%;
+}
+
+/* Encabezado */
+.pedidos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.pedidos-header h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Tabla Pedidos */
+.pedidos-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  text-align: center;
+}
+
+.pedidos-table th,
+.pedidos-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.pedidos-table th {
+  background: #f9f9f9;
+  font-weight: 600;
+  color: #444;
+}
+
+.pedidos-table tr:hover {
+  background: #a71783;
+}
+
+.status.entregado {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status.proceso {
+  background: #fff3cd;
+  color: #856404;
+}
+
+/*formulario*/
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  backdrop-filter: blur(2px);
+
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 35%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+#pedidoForm {
+  padding: 20px 80px;
+}
+
+.titulo {
+  background-color: #87004f;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.modal-content label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.modal-content select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 16px;
+}
+
