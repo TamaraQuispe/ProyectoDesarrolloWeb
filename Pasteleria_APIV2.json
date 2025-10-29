@@ -1,0 +1,276 @@
+{
+  "info": {
+    "name": "Pasteleria API",
+    "_postman_id": "c6a2f9c4-12b5-4f02-8dcb-00b1d2d1e4b9",
+    "description": "Colección completa de endpoints del sistema de pastelería (Spring Boot + JWT). Incluye autenticación, usuarios, roles, categorías y productos.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "🔐 Auth",
+      "item": [
+        {
+          "name": "Login (obtener token)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/auth/login?email=admin@pasteleria.com&password=admin123",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "auth", "login"],
+              "query": [
+                { "key": "email", "value": "admin@pasteleria.com" },
+                { "key": "password", "value": "admin123" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Cambiar Password",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "actualPassword", "value": "admin123" },
+                { "key": "nuevaPassword", "value": "admin456" }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/auth/cambiar-password",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "auth", "cambiar-password"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "👤 Usuarios",
+      "item": [
+        {
+          "name": "Listar usuarios",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "http://localhost:8080/api/usuarios"
+          }
+        },
+        {
+          "name": "Obtener usuario por ID",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "http://localhost:8080/api/usuarios/1"
+          }
+        },
+        {
+          "name": "Buscar usuario por email",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "http://localhost:8080/api/usuarios/email?email=admin@pasteleria.com"
+          }
+        },
+        {
+          "name": "Crear usuario",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Administrador\",\n  \"email\": \"admin@pasteleria.com\",\n  \"password\": \"admin123\",\n  \"rol\": { \"id\": 1 }\n}"
+            },
+            "url": "http://localhost:8080/api/usuarios"
+          }
+        },
+        {
+          "name": "Actualizar usuario",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Admin Principal\",\n  \"email\": \"admin@pasteleria.com\",\n  \"password\": \"admin456\",\n  \"rol\": { \"id\": 1 }\n}"
+            },
+            "url": "http://localhost:8080/api/usuarios/1"
+          }
+        },
+        {
+          "name": "Eliminar usuario",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "http://localhost:8080/api/usuarios/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "🛡️ Roles",
+      "item": [
+        {
+          "name": "Listar roles",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "http://localhost:8080/api/roles"
+          }
+        },
+        {
+          "name": "Crear rol",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"ADMIN\"\n}" },
+            "url": "http://localhost:8080/api/roles"
+          }
+        },
+        {
+          "name": "Actualizar rol",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"SUPERADMIN\"\n}" },
+            "url": "http://localhost:8080/api/roles/1"
+          }
+        },
+        {
+          "name": "Eliminar rol",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "http://localhost:8080/api/roles/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "📦 Categorías",
+      "item": [
+        {
+          "name": "Listar categorías",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "http://localhost:8080/api/categorias"
+          }
+        },
+        {
+          "name": "Crear categoría",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Tortas\",\n  \"descripcion\": \"Tortas personalizadas y clásicas\"\n}"
+            },
+            "url": "http://localhost:8080/api/categorias"
+          }
+        },
+        {
+          "name": "Actualizar categoría",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Tortas de Cumpleaños\",\n  \"descripcion\": \"Tortas para cumpleaños con diseños personalizados\"\n}"
+            },
+            "url": "http://localhost:8080/api/categorias/1"
+          }
+        },
+        {
+          "name": "Eliminar categoría",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "http://localhost:8080/api/categorias/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "🍰 Productos",
+      "item": [
+        {
+          "name": "Listar productos",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "http://localhost:8080/api/productos"
+          }
+        },
+        {
+          "name": "Crear producto",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Torta de Chocolate\",\n  \"descripcion\": \"Bizcocho de chocolate con relleno de fudge\",\n  \"precio\": 45.50,\n  \"categoria\": { \"id\": 1 }\n}"
+            },
+            "url": "http://localhost:8080/api/productos"
+          }
+        },
+        {
+          "name": "Actualizar producto",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Torta de Chocolate Deluxe\",\n  \"descripcion\": \"Con más fudge y cobertura\",\n  \"precio\": 55.00,\n  \"categoria\": { \"id\": 1 }\n}"
+            },
+            "url": "http://localhost:8080/api/productos/1"
+          }
+        },
+        {
+          "name": "Eliminar producto",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "http://localhost:8080/api/productos/1"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "token",
+      "value": "eyJhbGciOiJIUzI1NiIsInR5..."
+    }
+  ]
+}
